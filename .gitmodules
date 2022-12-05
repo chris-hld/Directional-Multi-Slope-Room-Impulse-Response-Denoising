@@ -1,0 +1,9 @@
+[submodule "DecayFitNet"]
+	path = DecayFitNet
+	url = https://github.com/georg-goetz/DecayFitNet.git
+[submodule "Spherical-Harmonic-Transform"]
+	path = Spherical-Harmonic-Transform
+	url = https://github.com/polarch/Spherical-Harmonic-Transform.git
+[submodule "Spherical-Array-Processing"]
+	path = Spherical-Array-Processing
+	url = https://github.com/polarch/Spherical-Array-Processing

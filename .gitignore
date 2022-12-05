@@ -1,0 +1,12 @@
+*.asv
+
+matlabScripts/*_model.m
+matlabScripts/*_model.mat
+
+*.wav
+*.m~
+.DS_Store
+*.png
+
+matlabScripts/denoisedData.mat
+matlabScripts/figs/
