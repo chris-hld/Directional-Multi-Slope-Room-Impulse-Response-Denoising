@@ -7,3 +7,6 @@
 [submodule "Spherical-Array-Processing"]
 	path = Spherical-Array-Processing
 	url = https://github.com/polarch/Spherical-Array-Processing
+[submodule "Higher-Order-Ambisonics"]
+	path = Higher-Order-Ambisonics
+	url = https://github.com/polarch/Higher-Order-Ambisonics.git
