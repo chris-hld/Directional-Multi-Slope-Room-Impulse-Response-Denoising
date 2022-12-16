@@ -13,6 +13,7 @@ addpath(genpath('./SphFilterBank/'));
 
 addpath(genpath('./Spherical-Harmonic-Transform/'));
 addpath(genpath('./Spherical-Array-Processing/'));
+addpath(genpath('./Higher-Order-Ambisonics/'));
 
 
 %% Check version
