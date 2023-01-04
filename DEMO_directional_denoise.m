@@ -57,6 +57,7 @@ net.filter_frequencies = pars.fBands;
 pars.spatFilterCoeffs = sphButterworth(N_sph, 5, N_sph/2+1).';
 %pars.spatFilterCoeffs = 'maxRE'
 
+pars.secDirs = getSectorSteering(rir_noisy_nm, 'front');
 
 %% Call
 [rir_denoised_nm, edcs] = directional_denoise_SRIR(rir_noisy_nm,pars.fs,pars,net);

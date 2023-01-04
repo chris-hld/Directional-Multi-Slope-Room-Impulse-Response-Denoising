@@ -26,13 +26,7 @@ numFadeSamples = round(0.25*fs);  % Cross-fade duration
 
 
 %% Directional Decomposition of SRIR
-[~, secDirs] = getTdesign(2*N_sph);
-secPos = unitSph2cart(secDirs);
-R = calculateRotationMatrix(secPos(1, :), [1, 0, 0]);
-secPos = secPos * R;  % rotate to sec0 = [0,0]
-[secAzi, secEle, secR] = cart2sph(secPos(:,1), secPos(:,2), secPos(:,3));
-secDirs = [rad2deg(secAzi), rad2deg(secEle)];
-
+secDirs = pars.secDirs;
 numSecs = size(secDirs, 1);
 
 %spatFilterCoeffs = sphButterworth(N_sph, 5, 2.5).';  % Or 'maxRE'
