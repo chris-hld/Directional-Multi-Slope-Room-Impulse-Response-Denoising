@@ -2,6 +2,8 @@
 
 matlabScripts/*_model.m
 matlabScripts/*_model.mat
+DecayFitNet_model.m
+DecayFitNet_model.mat
 
 *.wav
 *.m~
