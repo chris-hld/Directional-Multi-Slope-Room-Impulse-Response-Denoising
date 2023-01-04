@@ -1,20 +1,20 @@
 close all; clear variables; clc; lastwarn('');
 
+%% External dependencies
+addpath(genpath('./DecayFitNet/'));
+addpath(genpath('./SphFilterBank/'));
+addpath(genpath('./matlabScripts'));
+
+addpath(genpath('./Spherical-Harmonic-Transform/'));
+addpath(genpath('./Spherical-Array-Processing/'));
+addpath(genpath('./Higher-Order-Ambisonics/'));
+
 %% Load RIR (ACN-N3D)
 [rir_in_nm,fs_in] = audioread('./RIRs/eigenSRIR_doorway_6x10s.wav');  % SNR 61.3754
 
 % MAKE SURE SRIRs ARE N3D!
 warning("Converting Input to N3D")
 rir_in_nm = convert_N3D_SN3D(rir_in_nm, 'sn2n');
-
-%% External dependencies
-addpath(genpath('./DecayFitNet/'));
-addpath(genpath('./SphFilterBank/'));
-
-addpath(genpath('./Spherical-Harmonic-Transform/'));
-addpath(genpath('./Spherical-Array-Processing/'));
-addpath(genpath('./Higher-Order-Ambisonics/'));
-
 
 %% Check version
 versionchecker = DecayFitNetToolbox();
@@ -69,4 +69,4 @@ disp("Mean Spectral Error (dB) = " + mean(mean(abs(specDiffs))));
 disp("Mean rt60 Error (s) = " + mean(mean(abs(rt60diff))))
 
 %% Save results
-audiowrite("audio/SRIRdenoisedN3D.wav", rir_denoised_nm, pars.fs,'BitsPerSample',32)
+audiowrite("./RIRs/output/SRIRdenoisedN3D.wav", rir_denoised_nm, pars.fs,'BitsPerSample',32)
