@@ -29,7 +29,6 @@ pars = struct;
 %pars.fade = 0.6 * pars.fs  % if you know where, you can specify the cuton sample
 
 trim = 0.3;  % s (remove fade out, often present, makes estimation fail)
-rir_in_nm = rir_in_nm ./ (max(abs(rir_in_nm(:, 1))));  % normalize
 
 %% Preparing SRIR
 pars.fs = fs_in;

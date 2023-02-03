@@ -24,6 +24,8 @@ timeAxis = linspace(0, (numSmps - 1) / fs, numSmps );
 
 numFadeSamples = round(0.25*fs);  % Cross-fade duration
 
+c_norm = max(abs(rir_noisy_nm(:, 1)));  % normalize for est, restored later
+rir_noisy_nm = rir_noisy_nm / c_norm;
 
 %% Directional Decomposition of SRIR
 secDirs = pars.secDirs;
@@ -34,9 +36,7 @@ numSecs = size(secDirs, 1);
 [A, B_AP] = designSphFilterBank(N_sph,secDirs,pars.spatFilterCoeffs,'AP');
 [~, B_EP] = designSphFilterBank(N_sph,secDirs,pars.spatFilterCoeffs,'EP');
 
-
 rirSecs = rir_noisy_nm * A;  % Beamformer Signals
-
 
 %% DENOISE
 rirSecsSynth = zeros(size(rirSecs));
@@ -180,7 +180,9 @@ rir_secs_synth_faded = rir_secs_synth_faded * Cspat;
 rir_denoised_nm = rir_secs_faded * B_AP' + ...
                   rir_secs_synth_faded * B_EP';
 
-edcs = cat(4, measEdcSec, estEdcSec, synthEdcSec);
+edcs = cat(4, c_norm^2*measEdcSec, c_norm^2*estEdcSec, c_norm^2*synthEdcSec);
 
+% remove normalization
+rir_denoised_nm = c_norm * rir_denoised_nm;
 
 end
