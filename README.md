@@ -19,7 +19,12 @@ After this, the submodule 'DecayFitNet' should be at commit '33a5a546'.
 Please make sure to meet the dependencies/requirements of the submodule
 [DecayFitNet](https://github.com/georg-goetz/DecayFitNet).
 
-You also need these packages:
-<https://github.com/polarch/Spherical-Harmonic-Transform> , 
-<https://github.com/polarch/Spherical-Array-Processing>
+---
+From this room impulse response with directional energy:
+![DirRMS](figs/in_rms.png)
 
+To this directional EDC estimation and restoration (i.e. denoising):
+![DirEDC](figs/dir_edcs.png)
+
+Resulting in a denoised output:
+![EnInOut](figs/en_in_out.png)
